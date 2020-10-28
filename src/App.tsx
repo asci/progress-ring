@@ -11,7 +11,7 @@ export default function App() {
       <div className="controls">
         <button onClick={() => setPercent(0)}>Set zero</button>
         <button onClick={() => setPercent(Math.random() * 100)}>
-          Set Random Percent
+          Set Random
         </button>
         <button onClick={() => setPercent(100)}>Set full</button>
       </div>
