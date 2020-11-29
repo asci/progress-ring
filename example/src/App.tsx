@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./styles.css";
-import { ProgressRing } from "./ProgressRing";
+import { ProgressRing } from "progress-ring";
 
 // Showreel
 export default function App() {
@@ -17,7 +17,13 @@ export default function App() {
       </div>
       <div className="examples">
         <div style={{ display: "flex", placeItems: "center" }}>
-        <div style={{ fontSize: 14, position: "absolute", transform: "translateX(calc(-100% - 6px)" }}>
+          <div
+            style={{
+              fontSize: 14,
+              position: "absolute",
+              transform: "translateX(calc(-100% - 6px)",
+            }}
+          >
             {Math.round(percent)}%
           </div>
           <ProgressRing
@@ -43,7 +49,7 @@ export default function App() {
             style={{
               fontSize: 25,
               fontWeight: "bold",
-              fontVariantNumeric: "tabular-nums"
+              fontVariantNumeric: "tabular-nums",
             }}
           >
             {percent < 99
@@ -64,33 +70,7 @@ export default function App() {
         >
           <div style={{ fontSize: 20 }}>{Math.round(percent)}%</div>
         </ProgressRing>
-        <ProgressRing
-          percent={percent}
-          spin={true}
-          size={170}
-          lineWidth={10}
-          progressColor="#409FFF"
-        >
-          <div
-            style={{
-              fontSize: 60,
-              lineHeight: 0.9,
-              display: "flex",
-              alignItems: "top"
-            }}
-          >
-            {Math.round(percent)}
-            <span
-              style={{
-                fontSize: 20,
-                lineHeight: 1,
-                color: "#BABCBF"
-              }}
-            >
-              %
-            </span>
-          </div>
-        </ProgressRing>
+
         <ProgressRing
           percent={percent}
           size={160}

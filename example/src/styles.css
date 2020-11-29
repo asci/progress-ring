@@ -17,13 +17,3 @@ body {
 .examples > * + * {
   padding-left: 10px;
 }
-
-@keyframes animation-rotate {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
