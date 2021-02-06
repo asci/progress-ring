@@ -6,7 +6,7 @@
   "main": "lib/main.js",
   "types": "lib/ProgressRing.d.ts",
   "dependencies": {
-    "esbuild": "^0.8.16",
+    "esbuild": "0.8.42",
     "react": "17.0.1"
   },
   "devDependencies": {
