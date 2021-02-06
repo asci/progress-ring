@@ -3,7 +3,7 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "esbuild": "^0.8.16",
+    "esbuild": "0.8.42",
     "live-server": "^1.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"
