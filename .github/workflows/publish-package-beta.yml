@@ -29,6 +29,9 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./progress-ring
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
