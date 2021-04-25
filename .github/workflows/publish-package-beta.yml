@@ -39,3 +39,5 @@ jobs:
           node-version: 14
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
