@@ -37,9 +37,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - name: Install dependencies
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-          npm publish --tag beta
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
