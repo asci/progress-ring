@@ -5,6 +5,9 @@
   "keywords": [],
   "main": "lib/main.js",
   "types": "lib/ProgressRing.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "repository": {
     "url": "https://github.com/asci/progress-ring"
   },
