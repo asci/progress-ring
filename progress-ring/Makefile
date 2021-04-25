@@ -35,6 +35,6 @@ dev:
 	${BIN}/concurrently "make build_watch" "make serve_watch"
 
 publish_beta:
-	npm version prerelease --preid ${PACKAGE_VERSION}.${COMMIT_HASH} && npm publish --tag beta
+	npm version prerelease --preid beta_${COMMIT_HASH} && npm publish --tag beta
 
 .PHONY: bootstrap build clean clean_all dev serve_watch build_watch
