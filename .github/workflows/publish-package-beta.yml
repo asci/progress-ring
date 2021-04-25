@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 14
       - run: rm -rf node_modules
-      - run: npm cache clean
+      - run: npm install --cache /tmp/empty-cache
       - run: npm i # using npm because `yarn publish` is buggy and does not work on github actions
       - run: npm run build
 
