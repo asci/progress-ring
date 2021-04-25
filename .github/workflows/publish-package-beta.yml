@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - name: Setup tmate session
+      - name: Setup tmate session # Connection via web
         uses: mxschmitt/action-tmate@v3
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
