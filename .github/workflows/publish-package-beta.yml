@@ -38,6 +38,7 @@ jobs:
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
+      - run: npm login
       - run: npm publish --tag beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
