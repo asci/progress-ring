@@ -35,6 +35,6 @@ dev:
 	${BIN}/concurrently "make build_watch" "make serve_watch"
 
 publish_beta:
-	yarn publish --tag beta --non-interactive
+	npm version ${PACKAGE_VERSION}.${COMMIT_HASH} && npm publish --tag beta
 
 .PHONY: bootstrap build clean clean_all dev serve_watch build_watch
