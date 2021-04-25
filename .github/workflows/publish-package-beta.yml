@@ -40,7 +40,6 @@ jobs:
       - name: Install dependencies
         run: |
           echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-          npm ci
-      - run: npm publish --tag beta
+          npm publish --tag beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
