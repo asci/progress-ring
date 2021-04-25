@@ -23,7 +23,6 @@ jobs:
         with:
           node-version: 14
       - run: rm -rf node_modules
-      - run: npm install --cache /tmp/empty-cache
       - run: npm i # using npm because `yarn publish` is buggy and does not work on github actions
       - run: npm run build
 
@@ -38,7 +37,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: npm login
+      - name: Install dependencies
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+          npm ci
       - run: npm publish --tag beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
