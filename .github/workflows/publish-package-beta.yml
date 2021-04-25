@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - run: make publish_beta
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn publish --tag beta --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
