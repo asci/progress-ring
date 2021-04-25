@@ -23,8 +23,8 @@ jobs:
         with:
           node-version: 14
       - run: rm -rf node_modules
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - run: npm i # using npm because `yarn publish` is buggy and does not work on github actions
+      - run: npm run build
 
   publish-npm:
     needs: build
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-          registry-url: "https://registry.npmjs.org"
-      - run: yarn publish --tag beta --non-interactive
+          registry-url: "https://registry.npmjs.org/"
+      - run: npm publish --tag beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
