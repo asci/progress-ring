@@ -23,9 +23,7 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://registry.npmjs.org"
-      - run: rm -rf node_modules
-      - run: npm i # using npm because `yarn publish` is buggy and does not work on github actions
-      - run: npm run build
+      - run: make build
 
   publish-npm:
     needs: build
@@ -40,7 +38,6 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://registry.npmjs.org"
-      - run: npm install
       - run: make publish_beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

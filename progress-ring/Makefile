@@ -12,7 +12,7 @@ init:
 	yarn add --dev live-server concurrently
 
 bootstrap:
-	yarn install
+	yarn install --frozen-lockfile
 	mkdir -p ${OUT_DIR}
 
 clean:
