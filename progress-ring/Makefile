@@ -21,6 +21,6 @@ build_watch:
 	make ESBUILD_WATCH=--watch build
 
 publish_beta:
-	yarn version prerelease --preid ${COMMIT_HASH} && yarn publish --tag beta
+	yarn version --prerelease --preid ${COMMIT_HASH} && yarn publish --tag beta
 
 .PHONY: bootstrap build clean clean_all build_watch
