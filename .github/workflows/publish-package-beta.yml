@@ -12,21 +12,7 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./progress-ring
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-          registry-url: "https://registry.npmjs.org"
-      - run: make build
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -38,6 +24,7 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://registry.npmjs.org"
+      - run: make build_full
       - run: make publish_beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
