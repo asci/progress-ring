@@ -1,5 +1,6 @@
 {
   "include": ["./src/**/*"],
+  "exclude": ["./src/**/*.test.*"],
   "compilerOptions": {
     "moduleResolution": "node",
     "outDir": "./lib/",
