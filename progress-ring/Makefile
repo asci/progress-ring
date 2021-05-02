@@ -30,7 +30,7 @@ test: clean build
 	${BIN}/jest -c jest.config.json -u
 
 publish_beta: build_full
-	yarn version --prerelease --preid ${COMMIT_HASH}
+	yarn version --prerelease --preid ${COMMIT_HASH} --no-git-tag-version
 	yarn publish --tag beta
 
 .PHONY: bootstrap build clean clean_all build_watch test build_full types
