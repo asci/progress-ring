@@ -13,25 +13,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./progress-ring
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 14
-      - run: cd progress-ring
-      - run: npm i
-      - run: npm run build
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: make build
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./progress-ring
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
         with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - run: npm i
-      - run: npm publish
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: make publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

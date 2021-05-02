@@ -19,10 +19,6 @@
     "@types/react": "17",
     "typescript": "^4"
   },
-  "scripts": {
-    "build": "esbuild ./src/ProgressRing.tsx --bundle --outfile=./lib/main.js --external:react --format=esm",
-    "make:types": "tsc"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
