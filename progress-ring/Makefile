@@ -15,7 +15,7 @@ clean_all: clean
 	rm -rf node_modules
 
 build: bootstrap
-	${BIN}/esbuild ./src/index.tsx --bundle --outfile=./${OUT_DIR}/index.js --format=esm ${ESBUILD_WATCH}
+	${BIN}/esbuild ./src/ProgressRing.tsx --bundle --outfile=./lib/main.js --external:react --format=esm  ${ESBUILD_WATCH}
 
 build_watch:	
 	make ESBUILD_WATCH=--watch build
