@@ -24,12 +24,13 @@ build: bootstrap
 build_watch:	
 	make ESBUILD_WATCH=--watch build
 
-build_full:	types build
+build_full:	build types
 
 test: clean build
 	${BIN}/jest -c jest.config.json -u
 
 publish_beta: build_full
+	yarn version --prerelease --preid ${COMMIT_HASH}
 	yarn publish --tag beta
 
 .PHONY: bootstrap build clean clean_all build_watch test build_full types
