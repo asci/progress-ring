@@ -2,4 +2,6 @@
 
 ![demo](./demo.gif)
 
-No Dependencies React Progress Ring component
+React Progress Ring component
+
+With no dependencies
