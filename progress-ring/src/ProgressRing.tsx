@@ -13,17 +13,19 @@ interface Props {
 }
 
 // Actual component
-export function ProgressRing({
-  caps = "round",
-  children,
-  lineWidth = 10,
-  percent = 50,
-  progressColor = "tomato",
-  size = 200,
-  spin = false,
-  trackColor = "#eaeaea",
-  transitionDuration = 200
-}: Props) {
+export function ProgressRing(props: Props) {
+  const {
+    caps = "round",
+    children,
+    lineWidth = 10,
+    percent = 50,
+    progressColor = "tomato",
+    size = 200,
+    spin = false,
+    trackColor = "#eaeaea",
+    transitionDuration = 200,
+  } = props;
+
   const halfSize = size / 2;
   const radius = halfSize - lineWidth / 2;
   const circleLength = radius * 2 * Math.PI;
@@ -35,7 +37,7 @@ export function ProgressRing({
         height: size,
         display: "flex",
         placeContent: "center",
-        placeItems: "center"
+        placeItems: "center",
       }}
     >
       <svg
@@ -43,14 +45,14 @@ export function ProgressRing({
         width={size}
         style={{
           position: "absolute",
-          animation: spin ? "animation-rotate 2s linear infinite" : undefined
+          animation: spin ? "animation-rotate 2s linear infinite" : undefined,
         }}
         shapeRendering="geometricPrecision"
       >
         <g
           style={{
             transformOrigin: `${halfSize}px ${halfSize}px`,
-            transform: "rotate(-90deg)"
+            transform: "rotate(-90deg)",
           }}
         >
           <circle
@@ -70,7 +72,7 @@ export function ProgressRing({
                 transitionDuration > 0
                   ? `${transitionDuration}ms stroke-dashoffset`
                   : undefined,
-              strokeDashoffset: circleLength * (1 - percent / 100)
+              strokeDashoffset: circleLength * (1 - percent / 100),
             }}
             fill="none"
             strokeDasharray={circleLength}
